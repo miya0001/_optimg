@@ -9,18 +9,28 @@ branches:
   - master
   - "/^v?[0-9\\.]+/"
 php:
-  - 7.2
-  - 7.0
+- 7.2
+- 7.0
 env:
-  - WP_VERSION=latest WP_MULTISITE=0
-  - WP_VERSION=trunk WP_MULTISITE=0
+- WP_VERSION=latest WP_MULTISITE=0
+- WP_VERSION=trunk WP_MULTISITE=0
 before_script:
-  - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
-  - composer global require "phpunit/phpunit=4.8.*|5.7.*"
-  - composer install
+- export PATH="$HOME/.composer/vendor/bin:$PATH"
+- bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
+- composer global require "phpunit/phpunit=4.8.*|5.7.*"
+- composer install
 script:
-  - phpunit
+- phpunit
 after_success:
-  - sed -i -e "s/nightly/${TRAVIS_TAG}/" $(basename $TRAVIS_REPO_SLUG).php
-  - curl https://raw.githubusercontent.com/miya0001/auto-build/master/auto-build.sh | bash
+- sed -i -e "s/nightly/${TRAVIS_TAG}/" $(basename $TRAVIS_REPO_SLUG).php
+- curl https://raw.githubusercontent.com/miya0001/auto-build/master/auto-build.sh
+  | bash
+deploy:
+  provider: releases
+  skip_cleanup: true
+  api_key:
+    secure: VQp3JpqMQSy4fj/EjryLTafsArd63EMc0xK5jlWvVdjLcF2GcVoc54ifzISzTdb0asqBOwPFzqcGCgvfDrTPBssGgRtLBPEzJroY3LrOgRQJYC1LPZ8P+xY34rueTwmTIZbRHJe54zWXZ72gcJJrOm3vjg887tS5aW3gqYNlZh1jdMQZ2lniZHvSpQYbJA2VscJGJJIizorOfcIl4OOjiGQtgMIRbkd9VSoT7T6wP+4StQu75qmPgiw0UIvpp3i/nszwobK23ACJu9WN/+7KO9WyNOQnOUhWjrfcjcH8QJSIiIHaexmYDDnE+pRZ+GQJO0XtVEx0b3YxYxxEOtR+nVbhrhhRuzmragXkAY6sJe3+s8w10Xa5GLSH7K1tI5UEDc49Dbc/m/2hh8vFybg1reKRx+3lcW488XqEvszIGjZcJwmr/k5FUfRD+xvBJgo1v6KBitWmmxq0FAV6m6+40TSaOdwiPIDUrX4Pmm050jF4FexoWsDz3dPc47aMjme+JDO/AqXXJF7+yEzzd6pIaDj7Pazp6g3lRtE50ihJR8nctC5+5iLnzlAFyu2ThB7wveYUg2bTks1BeiNj+Ur9bp/UB/yhnj2Crgyudq+Av7pJSyKFvKXc1fsm+iKO30hdVI7zY3Lcj7HxZ6Tae4wNL2ALl9X9nWqj+TFDUG9g8a8=
+  file: _optimg.zip
+  on:
+    tags: true
+    repo: miya0001/_optimg
