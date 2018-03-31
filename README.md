@@ -1,5 +1,7 @@
 # _Optimg
 
+[![Build Status](https://travis-ci.org/miya0001/_optimg.svg?branch=master)](https://travis-ci.org/miya0001/_optimg)
+
 A WordPress plugin which optimize uploaded JPEGs and PNGs.
 
 ## Features

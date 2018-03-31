@@ -7,7 +7,7 @@
  * Author URI:      https://miya.io/
  * Text Domain:     _optimg
  * Domain Path:     /languages
- * Version:         0.1.0
+ * Version:         nightly
  *
  * @package         _optimg
  */
