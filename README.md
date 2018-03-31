@@ -19,8 +19,9 @@ You can define constants which are path to commands.
 | JPEGOPTIM_PATH | /usr/bin/jpegoptim |
 | PNGQUANT_PATH  | /usr/bin/pngquant  |
 
-Example:
+### Example:
 
 ```
 define( 'JPEGOPTIM_PATH', '/usr/local/bin/jpegoptim' );
+define( 'PNGQUANT_PATH', '/usr/local/bin/pngquant' );
 ```
