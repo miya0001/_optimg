@@ -10,9 +10,15 @@ A WordPress plugin which optimize uploaded JPEGs and PNGs.
 
 ## Configuration
 
-You can config path to commands with following constants.
+You can define constants which are path to commands.
 
 | Constant | Default Value |
-| ---------------- |--------------------- |
-| `JPEGOPTIM_PATH` | `/usr/bin/jpegoptim` |
-| `PNGQUANT_PATH`  | `/usr/bin/pngquant`  |
+| -------------- |------------------- |
+| JPEGOPTIM_PATH | /usr/bin/jpegoptim |
+| PNGQUANT_PATH  | /usr/bin/pngquant  |
+
+Example:
+
+```
+define( 'JPEGOPTIM_PATH', '/usr/local/bin/jpegoptim' );
+```
