@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:     _Optimg
- * Plugin URI:      PLUGIN SITE HERE
+ * Plugin URI:      https://github.com/miya0001/_optimg
  * Description:     Optimize uploaded images.
  * Author:          Takayuki Miyauchi
  * Author URI:      https://miya.io/
