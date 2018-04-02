@@ -56,19 +56,23 @@ add_filter( 'wp_image_editors', function( $editors ) {
 
 class _optimg
 {
+	const jpeg_quality = 60;
+	const png_quality = 1;
 	const jpegoptim_path = '/usr/bin/jpegoptim';
 	const pngquant_path = '/usr/bin/pngquant';
 
 	public static function optimize( $saved )
 	{
 		if ( ! empty( $saved["mime-type"] ) && 'image/jpeg' == $saved["mime-type"] ) {
-			self::jpegoptim( $saved['path'] );
+			$quality = apply_filters( 'optimg_jpeg_quality', self::jpeg_quality );
+			self::jpegoptim( $saved['path'], $quality );
 		} elseif ( ! empty( $saved["mime-type"] ) && 'image/png' == $saved["mime-type"] ) {
-			self::pngquant( $saved['path'] );
+			$quality = apply_filters( 'optimg_jpeg_quality', self::png_quality );
+			self::pngquant( $saved['path'], $quality );
 		}
 	}
 
-	public static function jpegoptim( $path, $quality = 60 ) {
+	public static function jpegoptim( $path, $quality = self::jpeg_quality ) {
 		if ( ! is_executable( self::get_jpegoptim() ) ) {
 			trigger_error( '`jpegoptim` is not executable, please install it.' );
 			return;
