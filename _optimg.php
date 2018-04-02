@@ -67,7 +67,7 @@ class _optimg
 			$quality = apply_filters( 'optimg_jpeg_quality', self::jpeg_quality );
 			self::jpegoptim( $saved['path'], $quality );
 		} elseif ( ! empty( $saved["mime-type"] ) && 'image/png' == $saved["mime-type"] ) {
-			$quality = apply_filters( 'optimg_jpeg_quality', self::png_quality );
+			$quality = apply_filters( 'optimg_png_quality', self::png_quality );
 			self::pngquant( $saved['path'], $quality );
 		}
 	}
