@@ -31,5 +31,13 @@ define( 'PNGQUANT_PATH', '/usr/local/bin/pngquant' );
 This plugin has filter hooks to customize the quality of images.
 
 ```
-add_filter(  );
+// Change the JPEG quality.
+add_filter( 'optimg_jpeg_quality', function( $quality ) {
+    return 60; // It is the default.
+} );
+
+// Change the PNG quality.
+add_filter( 'optimg_png_quality', function( $quality ) {
+    return 1; // It is the default.
+} );
 ```
