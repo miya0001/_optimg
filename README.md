@@ -21,7 +21,7 @@ You can define constants which are path to commands.
 
 ### Example:
 
-```
+```php
 define( 'JPEGOPTIM_PATH', '/usr/local/bin/jpegoptim' );
 define( 'PNGQUANT_PATH', '/usr/local/bin/pngquant' );
 ```
@@ -30,7 +30,7 @@ define( 'PNGQUANT_PATH', '/usr/local/bin/pngquant' );
 
 This plugin has filter hooks to customize the quality of images.
 
-```
+```php
 // Change the JPEG quality.
 add_filter( 'optimg_jpeg_quality', function( $quality ) {
     return 60; // It is the default.
